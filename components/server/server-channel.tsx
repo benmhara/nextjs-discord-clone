@@ -7,7 +7,6 @@ import { useParams, useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { ActionTooltip } from '@/components/action-tooltip'
 import { ModalType, useModal } from '@/hooks/use-modal-store'
-import { useEffect, useState } from 'react'
 
 interface ServerChannelProps {
   channel: Channel
@@ -60,20 +59,22 @@ export const ServerChannel = ({
         {channel.name}
       </p>
       {channel.name !== 'general' && role !== MemberRole.GUEST && (
-        <div className="ml-auto flex items-center gap-x-2">
-          <ActionTooltip label="edit">
-            <Edit
-              onClick={e => onAction(e, 'editChannel')}
-              className="hidden group-hover:block w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300 transition"
-            />
-          </ActionTooltip>
-          <ActionTooltip label="delete">
-            <Trash
-              onClick={e => onAction(e, 'deleteChannel')}
-              className="hidden group-hover:block w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300 transition"
-            />
-          </ActionTooltip>
-        </div>
+        <>
+          <div className="ml-auto flex items-center gap-x-2">
+            <ActionTooltip label="edit">
+              <Edit
+                onClick={e => onAction(e, 'editChannel')}
+                className="hidden group-hover:block w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300 transition"
+              />
+            </ActionTooltip>
+            <ActionTooltip label="delete">
+              <Trash
+                onClick={e => onAction(e, 'deleteChannel')}
+                className="hidden group-hover:block w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300 transition"
+              />
+            </ActionTooltip>
+          </div>
+        </>
       )}
       {channel.name === 'general' && (
         <Lock className="ml-auto w-4 h-4 text-zinc-500 dark:text-zinc-400" />
