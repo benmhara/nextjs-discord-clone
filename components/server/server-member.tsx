@@ -6,7 +6,6 @@ import { useParams, useRouter } from 'next/navigation'
 
 import { cn } from '@/lib/utils'
 import { UserAvatar } from '@/components/user-avatar'
-import { useEffect, useState } from 'react'
 
 interface ServerMemberProps {
   member: Member & { profile: Profile }
