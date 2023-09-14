@@ -8,7 +8,7 @@ import ServerSidebar from '@/components/server/server-sidebar'
 export const MobileToggle = ({ serverId }: { serverId: string }) => {
   return (
     <Sheet>
-      <SheetTrigger>
+      <SheetTrigger asChild>
         <Button variant="ghost" size="icon" className="md:hidden">
           <Menu />
         </Button>
